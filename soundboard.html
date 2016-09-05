@@ -6,7 +6,7 @@ layout: default
   <div class="row">
     {% for sound in site.data.soundboard %}
     <div class="col-md-3">
-        {% assign embed = sound.link | append: '?rel=0&autoplay=1&controls=0' %}
+        {% assign embed = sound.id | prepend: 'https://youtube.com/embed/' | append: '?rel=0&autoplay=1&controls=0' %}
         {% if sound.start %}
           {% assign embed = embed | append: '&start=' | append: sound.start %}
         {% endif %}
