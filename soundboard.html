@@ -6,9 +6,10 @@ layout: default
   <div class="row">
     {% for sound in site.data.soundboard %}
     <div class="col-md-3">
-        {% assign start = sound.start | default(0) %}
         {% assign embed = sound.link | append: '?rel=0&autoplay=1&controls=0' %}
-        {% assign embed = embed | append: '&start=' | append: start %}
+        {% if sound.start %}
+          {% assign embed = embed | append: '&start=' | append: sound.start %}
+        {% endif %}
         {% if sound.end %}
           {% assign embed = embed | append: '&end=' | append: sound.end %}
         {% endif %}
