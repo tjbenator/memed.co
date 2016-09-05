@@ -1,0 +1,28 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+body {
+    padding-top: 50px;
+}
+
+.navbar-nav > li > a, .navbar-brand {
+    padding-top:4px !important;
+    padding-bottom:0 !important;
+    height: 28px;
+}
+
+.navbar {min-height:28px !important; }
+
+.sound {
+  margin-bottom: 5px;
+  width: 100%;
+  text-align: left;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.sound-player {
+  background-color: #000;
+  margin-bottom: 5px;
+}

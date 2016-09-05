@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<div class="container main">
+  <iframe class="sound-player center-block" width="560" height="315" frameborder="0" name="video_viewer" allowfullscreen></iframe>
+  <div class="row">
+    {% for sound in site.data.soundboard %}
+    <div class="col-md-3">
+        {% assign start = sound.start | default(0) %}
+        {% assign embed = sound.link | append: '?rel=0&autoplay=1&controls=0' %}
+        {% assign embed = embed | append: '&start=' | append: start %}
+        {% if sound.end %}
+          {% assign embed = embed | append: '&end=' | append: sound.end %}
+        {% endif %}
+        <a class="btn btn-primary btn-lg sound" title="{{ sound.title }}" href="{{ embed }}" role="button" target="video_viewer">
+          <i class="fa fa-play" aria-hidden="true"></i> {{ sound.title }}
+        </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
