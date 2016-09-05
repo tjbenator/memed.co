@@ -5,5 +5,9 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://memed.co" # the base hostname & protocol for your site
 
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - ISSUE_TEMPLATE.md
 # Build settings
 markdown: kramdown
