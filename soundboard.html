@@ -1,8 +1,22 @@
 ---
 layout: default
 ---
+<script type="text/javascript">
+var last = null;
+
+$(document).on('click', "a.sound", function () {
+  $('a.sound').removeClass('btn-success').addClass('btn-primary');
+  $('i.fa-volume-up').removeClass('fa-volume-up').addClass('fa-volume-off');
+  $(this).children('i').removeClass('fa-volume-off').addClass('fa-volume-up');
+  $(this).removeClass('btn-primary').addClass('btn-success');
+  $('#video-title').text($(this).attr('title'));
+});
+</script>
 <div class="container main">
-  <iframe class="sound-player center-block" width="560" height="315" frameborder="0" name="video_viewer" allowfullscreen></iframe>
+  <h2 id='video-title'>Choose a clip</h2>
+  <div class="video-frame">
+    <iframe class="sound-player center-block" width="853" height="480" frameborder="0" name="video_viewer" allowfullscreen></iframe>
+  </div>
   <div class="row">
     {% for sound in site.data.soundboard %}
     <div class="col-md-3">
@@ -13,8 +27,8 @@ layout: default
         {% if sound.end %}
           {% assign embed = embed | append: '&end=' | append: sound.end %}
         {% endif %}
-        <a class="btn btn-primary btn-lg sound" title="{{ sound.title }}" href="{{ embed }}" role="button" target="video_viewer">
-          <i class="fa fa-play" aria-hidden="true"></i> {{ sound.title | capitalize }}
+        <a class="btn btn-primary btn-lg sound" title="{{ sound.title | capitalize }}" href="{{ embed }}" role="button" target="video_viewer">
+          <i class="fa fa-volume-off" aria-hidden="true"></i> {{ sound.title | capitalize }}
         </a>
     </div>
     {% endfor %}
