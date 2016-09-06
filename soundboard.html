@@ -14,7 +14,7 @@ layout: default
           {% assign embed = embed | append: '&end=' | append: sound.end %}
         {% endif %}
         <a class="btn btn-primary btn-lg sound" title="{{ sound.title }}" href="{{ embed }}" role="button" target="video_viewer">
-          <i class="fa fa-play" aria-hidden="true"></i> {{ sound.title }}
+          <i class="fa fa-play" aria-hidden="true"></i> {{ sound.title | capitalize }}
         </a>
     </div>
     {% endfor %}
